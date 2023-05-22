@@ -1,8 +1,10 @@
-function Tweet() {
+function Tweet({tweet}) {
+  let {user, timestamp, message} = tweet;
+  let {name, image, handle} = user;
   return (
     <div className="tweet">
       <img
-        src="https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/ih_logo.jpeg"
+        src={image}
         className="profile"
         alt="profile"
       />
@@ -10,17 +12,14 @@ function Tweet() {
       <div className="body">
         <div className="top">
           <span className="user">
-            <span className="name">Ironhack</span>
-            <span className="handle">@ironhack</span>
+            <span className="name">{name}</span>
+            <span className="handle">{handle}</span>
           </span>
 
-          <span className="timestamp">Nov 30, 2020</span>
+          <span className="timestamp">{timestamp}</span>
         </div>
 
-        <p className="message">
-          On December 7th, we will be hosting a #webinar that will introduce you
-          to #SQL! Are you ready? 🚀
-        </p>
+        <p className="message">{message}</p>
 
         <div className="actions">
           {/* Font Awesome icons */}
